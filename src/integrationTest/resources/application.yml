@@ -1,0 +1,28 @@
+spring:
+  jackson:
+    date-format: yyyy-MM-dd'T'HH:mm:ss.SSSX
+    property-naming-strategy: SNAKE_CASE
+    deserialization:
+      fail-on-unknown-properties: false
+      fail-on-missing-creator-properties: true
+    time-zone: UTC
+  data:
+    mongodb:
+      uri: mongodb://username:password@localhost:27081/prices?authSource=admin
+myretail:
+  partner-apis:
+    api-key: testkey1
+    authorization-token: Bearer `testtoken`
+    prices:
+      url: http://localhost:8090/my_retail/prices/v1/products/
+      timeout: 10
+    attributes:
+      url: http://localhost:8090/my_retail/attributes/v1/products/
+      timeout: 10
+  security:
+    valid-api-keys:
+      - testkey1
+    valid-authorization-token: Bearer `testtoken`
+mongock:
+  change-logs-scan-package:
+    - com.myretail.products.changelogs
